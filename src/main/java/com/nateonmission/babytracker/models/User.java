@@ -11,7 +11,9 @@ public class User {
 
     String email;
 
-    String pswd;
+    String passwordHash;
 
     Set<Baby> babies;
+
+    Boolean isDeleted;
 }

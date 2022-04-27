@@ -21,4 +21,6 @@ public class Baby {
     Set<DiaperChange> diaperChanges;
 
     Set<Feeding> feedings;
+
+    Boolean isDeleted;
 }
