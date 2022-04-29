@@ -1,10 +1,13 @@
 package com.nateonmission.babytracker.controllers;
 
 
+import com.nateonmission.babytracker.dtos.StatusDTO;
 import com.nateonmission.babytracker.services.BabyTrackerServices;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,6 +35,12 @@ public class BabyTrackerController {
     }
     ModelMapper modelMapper = modelMapper();
 
+    @CrossOrigin(origins = "*")
+    @GetMapping("")
+    public StatusDTO isAlive(){
+        LOGGER.info("calling isAlive method from controller");
+        return babyTrackerServices.isAlive();
+    }
 
 
 

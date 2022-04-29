@@ -1,6 +1,8 @@
 package com.nateonmission.babytracker.services;
 
 import com.nateonmission.babytracker.controllers.BabyTrackerController;
+import com.nateonmission.babytracker.dtos.StatusDTO;
+import com.nateonmission.babytracker.models.Status;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 
@@ -13,7 +15,19 @@ public class BabyTrackerServices {
     public ModelMapper modelMapper() {
         return new ModelMapper();
     }
-    ModelMapper modelMapper = modelMapper();
+    ModelMapper mapper = modelMapper();
+
+    // SERVICES FOR ROUTES IN CONTROLLER
+    public StatusDTO isAlive() {
+        LOGGER.info("calling isAlive method ==>");
+        Status current = new Status();
+        current.setStatus(true);
+        return mapper.map(current, StatusDTO.class);
+    }
+
+
+    
+
 
 
 
